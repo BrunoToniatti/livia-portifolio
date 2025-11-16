@@ -1,0 +1,26 @@
+<header class="navbar">
+  <div class="container">
+    <div class="logo">
+      <h1>Dr. Livia Ribeiro</h1>
+    </div>
+
+    <!-- Animated hamburger button (binds to same toggleMenu handler) -->
+    <button class="hamburger" (click)="toggleMenu()" [class.active]="menuAtivo" aria-label="Alternar menu" [attr.aria-expanded]="menuAtivo">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <nav class="menu" [class.active]="menuAtivo" role="navigation" [attr.aria-hidden]="!menuAtivo">
+      <ul>
+        <li><a href="#" (click)="scrollToSection($event, 'sobre-mim')">Sobre Mim</a></li>
+        <li><a href="#" (click)="scrollToSection($event, 'sobre-mim')">Procedimentos</a></li>
+        <li><a href="#" (click)="scrollToSection($event, 'price-table')">Tabela de Preços</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <!-- Backdrop for mobile menu (click to close) -->
+  <div class="menu-backdrop" (click)="toggleMenu()" [class.active]="menuAtivo" aria-hidden="true"></div>
+
+</header>
