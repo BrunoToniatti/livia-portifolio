@@ -12,20 +12,23 @@ export class CarouselComponent implements OnInit, OnDestroy {
   items = [
     {
       image: 'assets/banner/vasos.png',
+      imageMobile: 'assets/banner/vasos.png', // Versão otimizada para mobile
       title: 'Secagem de Vasinhos',
       subtitle: 'Tratamento avançado para eliminar vasinhos e melhorar a aparência da pele',
       type: 'aplication-c',
-      position: 'center center' // Pode ajustar: 'center top', 'center bottom', etc.
+      position: 'center center'
     },
     {
-      image: 'assets/banner/botox.jpg',
+      image: 'assets/banner/desktop-botox.jpg',
+      imageMobile: 'assets/banner/botox.jpg',
       title: 'Toxina Botulínica',
       subtitle: 'Suavize linhas de expressão e previna rugas com segurança',
       type: 'toxina-botulinica',
       position: 'center center'
     },
     {
-      image: 'assets/banner/labio.jpg',
+      image: 'assets/banner/desktop-labio.jpg',
+      imageMobile: 'assets/banner/labio.jpg',
       title: 'Especialidade em Lábios',
       subtitle: 'Realce natural e harmonioso para seus lábios',
       type: 'especialidade-labios',
