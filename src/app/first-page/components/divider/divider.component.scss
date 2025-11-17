@@ -1,0 +1,106 @@
+@import '../../../../style/variable';
+
+.divider {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  padding: 2rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: $bege;
+
+  .divider-svg {
+    width: 100%;
+    height: 80px;
+    opacity: 0;
+    animation: fadeIn 1s ease-out forwards;
+    animation-delay: 0.2s;
+  }
+
+  /* Linhas onduladas */
+  .wave-line {
+    stroke: rgba(212, 175, 55, 0.25);
+    stroke-linecap: round;
+    
+    &.wave-line-1 {
+      stroke: rgba(212, 175, 55, 0.3);
+    }
+    
+    &.wave-line-2 {
+      stroke: rgba(201, 124, 144, 0.2);
+    }
+  }
+
+  /* Flores discretas */
+  .flower {
+    opacity: 0;
+    animation: flowerFadeIn 0.8s ease-out forwards;
+    
+    &:nth-child(3) { animation-delay: 0.4s; }
+    &:nth-child(4) { animation-delay: 0.6s; }
+    &:nth-child(5) { animation-delay: 0.5s; }
+    
+    .flower-center {
+      fill: rgba(212, 175, 55, 0.4);
+    }
+    
+    .flower-petal {
+      fill: rgba(232, 183, 200, 0.25);
+    }
+  }
+}
+
+/* Animações */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scaleX(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+}
+
+@keyframes flowerFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .divider {
+    padding: 1.5rem 0;
+    background: $bege;
+    
+    .divider-svg {
+      height: 60px;
+    }
+    
+    .flower {
+      transform: scale(0.8);
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .divider {
+    padding: 1rem 0;
+    background: $bege;
+    
+    .divider-svg {
+      height: 50px;
+    }
+  }
+}
