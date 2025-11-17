@@ -12,7 +12,9 @@
         *ngFor="let item of items; let i = index"
         [class.active]="i === currentIndex"
       >
-        <div class="slide-image" [style.background-image]="'url(' + item.image + ')'"></div>
+        <div class="slide-image" 
+             [style.background-image]="'url(' + item.image + ')'"
+             [style.background-position]="item.position"></div>
         <div class="slide-overlay"></div>
         <div class="slide-content">
           <h3 class="slide-title">{{ item.title }}</h3>
