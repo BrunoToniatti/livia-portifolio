@@ -13,16 +13,19 @@ export class CarouselComponent implements OnInit, OnDestroy {
     {
       image: 'assets/banner/vasos.png',
       title: 'Secagem de Vasinhos',
+      subtitle: 'Tratamento avançado para eliminar vasinhos e melhorar a aparência da pele',
       type: 'aplication-c'
     },
     {
       image: 'assets/banner/botox.jpg',
       title: 'Toxina Botulínica',
+      subtitle: 'Suavize linhas de expressão e previna rugas com segurança',
       type: 'toxina-botulinica'
     },
     {
       image: 'assets/banner/labios.jpg',
       title: 'Especialidade em Lábios',
+      subtitle: 'Realce natural e harmonioso para seus lábios',
       type: 'especialidade-labios'
     }
   ];
@@ -83,6 +86,7 @@ export class CarouselComponent implements OnInit, OnDestroy {
 
   onTouchStart(event: TouchEvent) {
     this.touchStartX = event.changedTouches[0].screenX;
+    clearInterval(this.interval);
   }
 
   onTouchMove(event: TouchEvent) {
@@ -90,14 +94,17 @@ export class CarouselComponent implements OnInit, OnDestroy {
   }
 
   onTouchEnd(event: TouchEvent) {
-    const deltaX = this.touchEndX - this.touchStartX;
-    if (Math.abs(deltaX) > 40) { // Sensibilidade do swipe
-      if (deltaX < 0) {
+    const deltaX = this.touchStartX - this.touchEndX;
+    const threshold = 50;
+    
+    if (Math.abs(deltaX) > threshold) {
+      if (deltaX > 0) {
         this.nextSlide();
       } else {
         this.prevSlide();
       }
-      this.startAutoSlide();
     }
+    
+    this.startAutoSlide();
   }
 }
