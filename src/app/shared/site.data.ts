@@ -6,7 +6,7 @@ export const CONTACT = {
   instagramUrl: 'https://www.instagram.com/lalashdesignerr/',
   instagramHandle: '@lalashdesignerr',
   city: 'Jundiaí, SP',
-  fullName: 'Livia Barreto Ribeiro da Silva',
+  fullName: 'Lívia Ribeiro',
 };
 
 export function whatsappLink(
