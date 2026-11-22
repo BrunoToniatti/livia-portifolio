@@ -3,9 +3,9 @@ import { IconName } from './icon.component';
 export const CONTACT = {
   whatsappNumber: '5511946070726',
   phoneDisplay: '(11) 94607-0726',
-  instagramUrl: 'https://www.instagram.com/lalashdesignerr/',
-  instagramHandle: '@lalashdesignerr',
-  city: 'Jundiaí, SP',
+  instagramUrl: 'https://www.instagram.com/dra_liviaribeiro/',
+  instagramHandle: '@dra_liviaribeiro',
+  city: 'Santo André, SP',
   fullName: 'Livia Barreto Ribeiro da Silva',
 };
 
@@ -225,6 +225,6 @@ export const FAQ: { q: string; a: string }[] = [
   },
   {
     q: 'Onde é o atendimento?',
-    a: 'O atendimento acontece em Jundiaí, SP. O endereço completo é enviado no momento do agendamento pelo WhatsApp.',
+    a: 'O atendimento acontece em Santo André, SP. O endereço completo é enviado no momento do agendamento pelo WhatsApp.',
   },
 ];
