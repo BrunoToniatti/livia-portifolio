@@ -1,0 +1,100 @@
+@use 'style/variable' as *;
+
+.faq__grid {
+  display: grid;
+  gap: 3rem;
+
+  @media (min-width: $bp-md) {
+    grid-template-columns: 0.85fr 1.15fr;
+    gap: 5rem;
+    align-items: start;
+  }
+}
+
+.faq__intro {
+  @media (min-width: $bp-md) {
+    position: sticky;
+    top: calc(var(--header-h) + 2rem);
+  }
+}
+
+.faq__cta {
+  margin-top: 2rem;
+}
+
+.faq__list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.qa {
+  border-radius: 1.25rem;
+  border: 1px solid rgba($texto, 0.1);
+  background: rgba($branco-neve, 0.5);
+  transition:
+    background-color 0.4s ease,
+    border-color 0.4s ease,
+    box-shadow 0.5s var(--ease);
+
+  &.is-open {
+    background: var(--white);
+    border-color: rgba($dourado, 0.6);
+    box-shadow: 0 24px 50px -36px rgba($texto, 0.6);
+  }
+
+  h3 {
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+  }
+}
+
+.qa__q {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  width: 100%;
+  padding: 1.25rem 1.4rem;
+  text-align: left;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.12rem;
+  font-weight: 500;
+  line-height: 1.35;
+  border-radius: inherit;
+}
+
+.qa__icon {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 50%;
+  border: 1px solid rgba($texto, 0.15);
+  color: var(--rose-deep);
+  font-size: 0.95rem;
+  transition:
+    transform 0.6s var(--ease),
+    background-color 0.4s ease,
+    color 0.4s ease,
+    border-color 0.4s ease;
+
+  .is-open & {
+    transform: rotate(135deg);
+    background: var(--rose-deep);
+    border-color: var(--rose-deep);
+    color: var(--white);
+  }
+}
+
+.qa__a {
+  overflow: hidden;
+
+  p {
+    padding: 0 1.4rem 1.4rem;
+    color: var(--ink-soft);
+  }
+}

@@ -1,9 +1,7 @@
 import { Routes } from '@angular/router';
-import { FirstPageComponent } from './first-page/first-page.component';
+import { HomeComponent } from './home/home.component';
 
 export const routes: Routes = [
-  {
-    path: '',
-    component: FirstPageComponent
-  }
+  { path: '', component: HomeComponent, title: 'Dra. Lívia Ribeiro | Estética Avançada em Jundiaí' },
+  { path: '**', redirectTo: '' },
 ];

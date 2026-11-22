@@ -1,26 +1,257 @@
-/* You can add global styles to this file, and also import other style files */
-@import 'style/variable';
+@use 'style/variable' as *;
 
-*{
+:root {
+  --rose: #{$rose-principal};
+  --rose-dark: #{$rose-escuro};
+  --rose-deep: #{$rose-profundo};
+  --rose-light: #{$rose-claro};
+  --gold: #{$dourado};
+  --beige: #{$bege};
+  --beige-light: #{$bege-claro};
+  --white: #{$branco-neve};
+  --brown: #{$marrom-claro};
+  --ink: #{$texto};
+  --ink-soft: #{$texto-suave};
+  --ease: #{$ease};
+  --header-h: 76px;
+  --gutter: clamp(1.25rem, 4vw, 3rem);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-/* Fontes elegantes para todo o projeto */
-body {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 400;
-  letter-spacing: 0.3px;
-  overflow-x: hidden;
-  background: $bege;
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--header-h) + 8px);
+  -webkit-text-size-adjust: 100%;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'Cormorant Garamond', serif;
-  font-weight: 600;
-  letter-spacing: 0.5px;
+body {
+  font-family: 'Jost', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  color: var(--ink);
+  background: var(--beige);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+img {
+  height: auto;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
 }
 
 button {
-  font-family: 'Montserrat', sans-serif;
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-weight: 500;
+  line-height: 1.08;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+
+::selection {
+  background: var(--rose);
+  color: var(--ink);
+}
+
+:focus-visible {
+  outline: 2px solid var(--rose-deep);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+// ── Layout ─────────────────────────────────────────────────────────────
+.container {
+  width: min(1200px, 100% - 2 * var(--gutter));
+  margin-inline: auto;
+}
+
+.section {
+  position: relative;
+  padding-block: clamp(4.5rem, 10vw, 8rem);
+}
+
+.section-head {
+  max-width: 46rem;
+  margin-inline: auto;
+  text-align: center;
+
+  .section-lead {
+    margin-inline: auto;
+  }
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--rose-deep);
+
+  &::before {
+    content: '';
+    width: 2.25rem;
+    height: 1px;
+    background: var(--gold);
+  }
+
+  .section-head &::after {
+    content: '';
+    width: 2.25rem;
+    height: 1px;
+    background: var(--gold);
+  }
+}
+
+.section-title {
+  margin-top: 1rem;
+  font-size: clamp(2.1rem, 4.6vw, 3.4rem);
+  text-wrap: balance;
+
+  em {
+    color: var(--rose-deep);
+  }
+}
+
+.section-lead {
+  max-width: 36rem;
+  margin-top: 1.25rem;
+  font-size: 1.075rem;
+  color: var(--ink-soft);
+}
+
+.script {
+  font-family: 'Pinyon Script', cursive;
+  font-weight: 400;
+}
+
+// ── Botões ─────────────────────────────────────────────────────────────
+.btn {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  padding: 1rem 1.75rem;
+  border-radius: 999px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  text-align: center;
+  transition:
+    transform 0.45s var(--ease),
+    box-shadow 0.45s var(--ease),
+    background-color 0.3s ease,
+    border-color 0.3s ease,
+    color 0.3s ease;
+
+  app-icon {
+    width: 1.15rem;
+    height: 1.15rem;
+    flex: none;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(110deg, transparent 30%, rgba(255, 255, 255, 0.35) 50%, transparent 70%);
+    transform: translateX(-120%);
+    transition: transform 0.9s var(--ease);
+  }
+
+  &:hover {
+    transform: translateY(-2px);
+
+    &::after {
+      transform: translateX(120%);
+    }
+  }
+
+  &:active {
+    transform: translateY(0) scale(0.98);
+  }
+}
+
+.btn--primary {
+  background: var(--rose-deep);
+  color: var(--white);
+  box-shadow: 0 14px 30px -14px rgba($rose-profundo, 0.75);
+
+  &:hover {
+    box-shadow: 0 20px 40px -16px rgba($rose-profundo, 0.85);
+  }
+}
+
+.btn--ghost {
+  border: 1px solid rgba($texto, 0.22);
+  color: var(--ink);
+
+  &:hover {
+    border-color: var(--gold);
+    background: rgba($branco-neve, 0.55);
+  }
+}
+
+.btn--light {
+  background: var(--white);
+  color: var(--rose-deep);
+  box-shadow: 0 16px 36px -18px rgba($texto, 0.6);
+}
+
+.btn--lg {
+  padding: 1.15rem 2.1rem;
+  font-size: 1rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

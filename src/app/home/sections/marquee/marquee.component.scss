@@ -1,0 +1,51 @@
+@use 'style/variable' as *;
+
+:host {
+  display: block;
+  overflow: hidden;
+  padding-block: 1.5rem;
+}
+
+.marquee {
+  width: 110%;
+  margin-left: -5%;
+  padding-block: 1.15rem;
+  background: var(--ink);
+  color: var(--beige);
+  transform: rotate(-1.5deg);
+  box-shadow: 0 20px 40px -30px rgba($texto, 0.8);
+}
+
+.marquee__track {
+  display: flex;
+  width: max-content;
+  animation: marquee 38s linear infinite;
+
+  .marquee:hover & {
+    animation-play-state: paused;
+  }
+}
+
+.marquee__group {
+  display: flex;
+  align-items: center;
+}
+
+.marquee__item {
+  padding-inline: 1.75rem;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(1.3rem, 2.6vw, 2rem);
+  font-style: italic;
+  white-space: nowrap;
+}
+
+.marquee__star {
+  color: var(--gold);
+  font-size: 1.1rem;
+}
+
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}

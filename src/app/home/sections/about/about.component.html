@@ -1,0 +1,45 @@
+<section class="section about" id="sobre">
+  <div class="container about__grid" appInView #v="inView" (entered)="startCounter()">
+    <div class="about__media">
+      <div class="about__frame" aria-hidden="true" [@reveal]="rv(v.visible, 300, 'translate(-24px, -24px)', 1400)"></div>
+      <figure class="about__photo" [@curtain]="{ value: v.visible ? 'in' : 'out', params: { delay: 0 } }">
+        <img src="assets/img/livia.webp" alt="Dra. Lívia Ribeiro sorrindo" width="640" height="640" loading="lazy" />
+      </figure>
+      <div class="about__badge-pos">
+        <div class="bob">
+          <div class="about__badge" [@reveal]="rv(v.visible, 700, 'scale(0.7)')">
+            <span class="about__badge-num">+{{ years }}</span>
+            <span class="about__badge-label">anos dedicados<br />à estética</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="about__content">
+      <span class="eyebrow" [@reveal]="rv(v.visible, 100)">Prazer, eu sou a</span>
+      <p class="about__signature script" [@reveal]="rv(v.visible, 200, 'translateX(-30px)', 1200)">Lívia Ribeiro</p>
+      <h2 class="section-title" [@reveal]="rv(v.visible, 300)">
+        Biomédica esteta, apaixonada por <em>realçar</em> a beleza de cada mulher.
+      </h2>
+      <p class="section-lead" [@reveal]="rv(v.visible, 400)">
+        Sou especializada em estética avançada e dedico cada atendimento a valorizar a sua beleza natural e o seu
+        bem-estar, com técnica, segurança e muito carinho.
+      </p>
+
+      <ul class="about__creds">
+        @for (c of credentials; track c.label; let i = $index) {
+          <li [@reveal]="rv(v.visible, 500 + i * 90, 'translateY(20px)')">
+            <span class="about__cred">
+              <span class="about__cred-icon"><app-icon [name]="c.icon" /></span>
+              {{ c.label }}
+            </span>
+          </li>
+        }
+      </ul>
+
+      <blockquote class="about__quote" [@reveal]="rv(v.visible, 1000)">
+        <p>“Meu maior objetivo é que você se sinta linda, confiante e única em cada visita.”</p>
+      </blockquote>
+    </div>
+  </div>
+</section>

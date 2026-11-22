@@ -1,0 +1,119 @@
+@use 'style/variable' as *;
+
+.cta-wrap {
+  padding-block: clamp(1rem, 4vw, 3rem) clamp(4.5rem, 10vw, 7rem);
+}
+
+.cta {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  padding: clamp(3rem, 8vw, 6rem) clamp(1.5rem, 6vw, 5rem);
+  border-radius: 2.5rem;
+  text-align: center;
+  color: var(--white);
+  background:
+    radial-gradient(40rem 20rem at 0% 0%, rgba($rose-principal, 0.55), transparent 60%),
+    linear-gradient(135deg, var(--rose-deep), mix($rose-profundo, $rose-escuro, 55%) 55%, var(--rose-deep));
+  box-shadow: 0 50px 100px -50px rgba($rose-profundo, 0.9);
+}
+
+.cta__orb {
+  position: absolute;
+  z-index: -1;
+  border-radius: 50%;
+  border: 1px solid rgba($dourado, 0.55);
+  animation: orbit 20s linear infinite;
+}
+
+.cta__orb--1 {
+  width: 26rem;
+  height: 26rem;
+  right: -9rem;
+  top: -11rem;
+}
+
+.cta__orb--2 {
+  width: 18rem;
+  height: 18rem;
+  left: -7rem;
+  bottom: -8rem;
+  border-style: dashed;
+  animation-direction: reverse;
+  animation-duration: 28s;
+}
+
+@keyframes orbit {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.cta__shine {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background: linear-gradient(115deg, transparent 35%, rgba($branco-neve, 0.18) 50%, transparent 65%);
+  background-size: 250% 100%;
+  animation: shine 6s ease-in-out infinite;
+}
+
+@keyframes shine {
+  0% {
+    background-position: 120% 0;
+  }
+  60%,
+  100% {
+    background-position: -120% 0;
+  }
+}
+
+.cta__script {
+  display: block;
+  font-size: clamp(2.4rem, 6vw, 3.4rem);
+  line-height: 1;
+  color: var(--beige);
+}
+
+.cta__title {
+  max-width: 44rem;
+  margin: 0.75rem auto 0;
+  font-size: clamp(2.1rem, 5vw, 3.6rem);
+  text-wrap: balance;
+  color: var(--white);
+
+  em {
+    color: var(--beige);
+  }
+}
+
+.cta__text {
+  max-width: 34rem;
+  margin: 1.25rem auto 0;
+  font-size: 1.1rem;
+  color: rgba($branco-neve, 0.92);
+}
+
+.cta__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem 2rem;
+  margin-top: 2.5rem;
+}
+
+.cta__phone {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 1.05rem;
+  letter-spacing: 0.04em;
+  border-bottom: 1px solid rgba($branco-neve, 0.5);
+  padding-bottom: 0.15rem;
+  transition: border-color 0.3s ease;
+
+  &:hover {
+    border-color: var(--gold);
+  }
+}

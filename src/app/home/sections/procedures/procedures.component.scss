@@ -1,0 +1,464 @@
+@use 'style/variable' as *;
+
+.procedures {
+  background:
+    radial-gradient(60rem 30rem at 100% 0%, rgba($rose-principal, 0.35), transparent 60%),
+    var(--beige-light);
+}
+
+.procedures__layout {
+  display: grid;
+  gap: 2rem;
+  margin-top: clamp(2.5rem, 6vw, 4rem);
+
+  @media (min-width: $bp-md) {
+    grid-template-columns: 300px 1fr;
+    gap: 2.5rem;
+    align-items: start;
+  }
+}
+
+// ── Abas ──────────────────────────────────────────────────────────────
+.tabs {
+  display: flex;
+  gap: 0.6rem;
+  overflow-x: auto;
+  scrollbar-width: none;
+  margin-inline: calc(-1 * var(--gutter));
+  padding: 0.25rem var(--gutter) 0.5rem;
+  scroll-snap-type: x proximity;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  @media (min-width: $bp-md) {
+    position: sticky;
+    top: calc(var(--header-h) + 1.5rem);
+    flex-direction: column;
+    gap: 0.4rem;
+    overflow: visible;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.tab {
+  position: relative;
+  flex: none;
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  padding: 0.7rem 1.15rem;
+  border-radius: 999px;
+  border: 1px solid rgba($texto, 0.14);
+  background: rgba($branco-neve, 0.6);
+  text-align: left;
+  scroll-snap-align: start;
+  transition:
+    background-color 0.4s ease,
+    border-color 0.4s ease,
+    color 0.4s ease,
+    transform 0.5s var(--ease),
+    box-shadow 0.5s var(--ease);
+
+  @media (min-width: $bp-md) {
+    padding: 1.1rem 1.25rem;
+    border-radius: 1.25rem;
+    border-color: transparent;
+    background: transparent;
+
+    &:hover {
+      background: rgba($branco-neve, 0.7);
+      transform: translateX(4px);
+    }
+  }
+
+  &.is-active {
+    background: var(--ink);
+    border-color: var(--ink);
+    color: var(--beige);
+    box-shadow: 0 18px 36px -22px rgba($texto, 0.9);
+
+    @media (min-width: $bp-md) {
+      transform: translateX(8px);
+    }
+  }
+}
+
+.tab__num {
+  display: none;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  color: var(--rose-deep);
+
+  .is-active & {
+    color: var(--gold);
+  }
+
+  @media (min-width: $bp-md) {
+    display: block;
+  }
+}
+
+.tab__text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.tab__name {
+  font-size: 0.92rem;
+  font-weight: 500;
+  white-space: nowrap;
+
+  @media (min-width: $bp-md) {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.15rem;
+    font-weight: 500;
+    white-space: normal;
+  }
+}
+
+.tab__cat {
+  display: none;
+  font-size: 0.78rem;
+  opacity: 0.75;
+
+  @media (min-width: $bp-md) {
+    display: block;
+    margin-top: 0.2rem;
+  }
+}
+
+.tab__arrow {
+  display: none;
+  margin-left: auto;
+  opacity: 0;
+  transform: translateX(-8px);
+  transition:
+    opacity 0.4s ease,
+    transform 0.5s var(--ease);
+  color: var(--gold);
+
+  @media (min-width: $bp-md) {
+    display: inline-block;
+  }
+
+  .is-active & {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+// ── Palco ─────────────────────────────────────────────────────────────
+.stage {
+  position: relative;
+  border-radius: 2rem;
+  background: var(--white);
+  box-shadow: 0 40px 90px -50px rgba($texto, 0.55);
+  overflow: hidden;
+}
+
+.stage__swap {
+  display: grid;
+
+  > * {
+    grid-area: 1 / 1;
+  }
+}
+
+.panel {
+  display: grid;
+
+  @media (min-width: 720px) {
+    grid-template-columns: 0.9fr 1.1fr;
+  }
+}
+
+.proc-media {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  background: var(--rose-light);
+
+  @media (min-width: 720px) {
+    aspect-ratio: auto;
+    min-height: 100%;
+  }
+}
+
+.proc-media__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.proc-media__badge {
+  position: absolute;
+  left: 1rem;
+  top: 1rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.45rem 0.9rem;
+  border-radius: 999px;
+  background: var(--gold);
+  color: var(--ink);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  box-shadow: 0 12px 24px -14px rgba($texto, 0.8);
+}
+
+.proc-media__count {
+  position: absolute;
+  right: 1rem;
+  bottom: 1rem;
+  padding: 0.35rem 0.8rem;
+  border-radius: 999px;
+  background: rgba($texto, 0.55);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  color: var(--beige);
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+}
+
+// Arte para procedimentos sem foto
+.proc-art {
+  display: grid;
+  place-items: center;
+  background:
+    radial-gradient(circle at 30% 20%, rgba($branco-neve, 0.9), transparent 55%),
+    linear-gradient(150deg, var(--rose-light), var(--rose) 55%, var(--rose-dark));
+}
+
+.proc-art__ring {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  border-radius: 50%;
+  border: 1px solid rgba($branco-neve, 0.75);
+  translate: -50% -50%;
+  animation: ripple 4.5s var(--ease) infinite;
+}
+
+.proc-art__ring--1 {
+  width: 40%;
+  aspect-ratio: 1;
+}
+
+.proc-art__ring--2 {
+  width: 65%;
+  aspect-ratio: 1;
+  border-style: dashed;
+  border-color: rgba($dourado, 0.8);
+  animation-delay: -1.5s;
+}
+
+.proc-art__ring--3 {
+  width: 90%;
+  aspect-ratio: 1;
+  animation-delay: -3s;
+}
+
+@keyframes ripple {
+  0%,
+  100% {
+    transform: scale(0.92) rotate(0deg);
+    opacity: 0.6;
+  }
+  50% {
+    transform: scale(1.04) rotate(25deg);
+    opacity: 1;
+  }
+}
+
+.proc-art__word {
+  position: relative;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  font-style: italic;
+  color: var(--white);
+  text-shadow: 0 4px 24px rgba($rose-profundo, 0.5);
+}
+
+// ── Conteúdo ──────────────────────────────────────────────────────────
+.panel__body {
+  display: flex;
+  flex-direction: column;
+  padding: clamp(1.5rem, 4vw, 2.75rem);
+}
+
+.panel__cat {
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--rose-deep);
+}
+
+.panel__title {
+  margin-top: 0.6rem;
+  font-size: clamp(1.8rem, 3.4vw, 2.5rem);
+  font-weight: 500;
+  text-wrap: balance;
+}
+
+.panel__desc {
+  margin-top: 1rem;
+  color: var(--ink-soft);
+}
+
+.panel__highlights {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+
+  li {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.45rem 0.85rem;
+    border-radius: 999px;
+    background: var(--beige-light);
+    border: 1px solid rgba($dourado, 0.45);
+    font-size: 0.82rem;
+  }
+
+  app-icon {
+    color: var(--rose-deep);
+  }
+}
+
+.panel__benefits {
+  display: grid;
+  gap: 0.6rem 1.25rem;
+  margin-top: 1.5rem;
+
+  @media (min-width: $bp-sm) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+    font-size: 0.95rem;
+    line-height: 1.45;
+  }
+}
+
+.check {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 1.35rem;
+  height: 1.35rem;
+  margin-top: 0.05rem;
+  border-radius: 50%;
+  background: var(--rose-deep);
+  color: var(--white);
+  font-size: 0.7rem;
+}
+
+.panel__footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.25rem;
+  margin-top: auto;
+  padding-top: 1.75rem;
+
+  .btn {
+    @media (max-width: $bp-sm - 1) {
+      flex: 1 1 100%;
+    }
+  }
+}
+
+.price {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.price__label {
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+.price__value {
+  margin-top: 0.3rem;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.55rem;
+  font-weight: 500;
+  color: var(--rose-deep);
+}
+
+.price__note {
+  margin-top: 0.2rem;
+  font-size: 0.78rem;
+  color: var(--ink-soft);
+}
+
+// ── Navegação do palco ────────────────────────────────────────────────
+.stage__nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem;
+  border-top: 1px solid rgba($texto, 0.08);
+}
+
+.stage__btn {
+  display: grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 50%;
+  border: 1px solid rgba($texto, 0.15);
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    transform 0.4s var(--ease);
+
+  &:hover {
+    background: var(--ink);
+    color: var(--beige);
+    transform: scale(1.06);
+  }
+
+  .flip {
+    transform: rotate(180deg);
+  }
+}
+
+.stage__dots {
+  display: flex;
+  gap: 0.45rem;
+}
+
+.stage__dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 999px;
+  background: rgba($texto, 0.2);
+  transition:
+    width 0.5s var(--ease),
+    background-color 0.4s ease;
+
+  &.is-active {
+    width: 1.75rem;
+    background: var(--gold);
+  }
+}

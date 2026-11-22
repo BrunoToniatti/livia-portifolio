@@ -1,0 +1,139 @@
+@use 'style/variable' as *;
+
+.footer {
+  padding: clamp(3.5rem, 8vw, 5.5rem) 0 2rem;
+  background: var(--ink);
+  color: rgba($bege, 0.78);
+  font-size: 0.95rem;
+}
+
+.footer__top {
+  display: grid;
+  gap: 2.5rem;
+
+  @media (min-width: $bp-sm) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @media (min-width: $bp-md) {
+    grid-template-columns: 1.4fr 1fr 1fr 1.2fr;
+  }
+}
+
+.footer__name {
+  display: block;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.75rem;
+  font-weight: 500;
+  line-height: 1.1;
+  color: var(--beige);
+}
+
+.footer__sub {
+  display: block;
+  margin-top: 0.3rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.footer__tagline {
+  max-width: 18rem;
+  margin-top: 1.25rem;
+}
+
+.footer__social {
+  display: flex;
+  gap: 0.6rem;
+  margin-top: 1.5rem;
+
+  a {
+    display: grid;
+    place-items: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: 50%;
+    border: 1px solid rgba($bege, 0.25);
+    color: var(--beige);
+    transition:
+      background-color 0.3s ease,
+      color 0.3s ease,
+      transform 0.4s var(--ease),
+      border-color 0.3s ease;
+
+    &:hover {
+      background: var(--gold);
+      border-color: var(--gold);
+      color: var(--ink);
+      transform: translateY(-3px);
+    }
+  }
+}
+
+.footer__col {
+  h3 {
+    font-family: 'Jost', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    margin-top: 1.25rem;
+  }
+
+  a {
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: var(--rose);
+    }
+  }
+}
+
+.footer__contact {
+  li,
+  a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+
+  app-icon {
+    color: var(--gold);
+  }
+}
+
+.footer__bottom {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 3.5rem;
+  padding-top: 1.75rem;
+  border-top: 1px solid rgba($bege, 0.15);
+  font-size: 0.82rem;
+}
+
+.footer__top-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--beige);
+
+  .up {
+    transform: rotate(180deg);
+    transition: transform 0.4s var(--ease);
+  }
+
+  &:hover .up {
+    transform: rotate(180deg) translateY(4px);
+  }
+}

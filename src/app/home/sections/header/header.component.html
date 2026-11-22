@@ -1,0 +1,57 @@
+<header class="header" [class.is-solid]="scrolled || menuOpen" [class.is-open]="menuOpen">
+  <div class="container header__inner">
+    <a class="brand" href="#inicio" (click)="closeMenu()" aria-label="Dra. Lívia Ribeiro, voltar ao início">
+      <span class="brand__mark" aria-hidden="true">LR</span>
+      <span class="brand__text">
+        <span class="brand__name">Dra. Lívia Ribeiro</span>
+        <span class="brand__sub">Estética Avançada</span>
+      </span>
+    </a>
+
+    <nav class="nav" aria-label="Seções do site">
+      @for (item of nav; track item.id) {
+        <a class="nav__link" [href]="'#' + item.id" [class.is-active]="active === item.id">{{ item.label }}</a>
+      }
+    </nav>
+
+    <a class="btn btn--primary header__cta" [href]="whatsapp" target="_blank" rel="noopener">
+      <app-icon name="whatsapp" />
+      Agendar avaliação
+    </a>
+
+    <button
+      class="burger"
+      type="button"
+      (click)="toggleMenu()"
+      [attr.aria-expanded]="menuOpen"
+      aria-controls="menu-mobile"
+      [attr.aria-label]="menuOpen ? 'Fechar menu' : 'Abrir menu'"
+    >
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+  <div class="header__progress" #progress></div>
+</header>
+
+@if (menuOpen) {
+  <div class="mmenu" id="menu-mobile" @menuOverlay>
+    <div class="mmenu__glow" aria-hidden="true"></div>
+    <nav class="container mmenu__nav" aria-label="Menu">
+      @for (item of nav; track item.id; let i = $index) {
+        <a class="mm-item mmenu__link" [href]="'#' + item.id" (click)="closeMenu()">
+          <span class="mmenu__num">0{{ i + 1 }}</span>
+          {{ item.label }}
+        </a>
+      }
+      <a class="mm-item btn btn--primary btn--lg mmenu__cta" [href]="whatsapp" target="_blank" rel="noopener">
+        <app-icon name="whatsapp" />
+        Agendar pelo WhatsApp
+      </a>
+      <div class="mm-item mmenu__contact">
+        <a [href]="whatsapp" target="_blank" rel="noopener"><app-icon name="phone" /> {{ contact.phoneDisplay }}</a>
+        <a [href]="contact.instagramUrl" target="_blank" rel="noopener"><app-icon name="instagram" /> Instagram</a>
+      </div>
+    </nav>
+  </div>
+}
