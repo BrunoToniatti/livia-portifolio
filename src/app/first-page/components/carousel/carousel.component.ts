@@ -12,7 +12,7 @@ export class CarouselComponent implements OnInit, OnDestroy {
   items = [
     {
       image: 'assets/banner/vasos.png',
-      imageMobile: 'assets/banner/vasos.png', // Versão otimizada para mobile
+      imageMobile: 'assets/banner/vasos.png',
       title: 'Secagem de Vasinhos',
       subtitle: 'Tratamento avançado para eliminar vasinhos e melhorar a aparência da pele',
       type: 'aplication-c',

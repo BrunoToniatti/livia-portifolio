@@ -5,6 +5,7 @@ import { AboutComponent } from "./components/about/about.component";
 import { FooterComponent } from "./components/footer/footer.component";
 import { JobsComponent } from './components/jobs/jobs.component';
 import { DividerComponent } from './components/divider/divider.component';
+import { HeroComponent } from './components/hero/hero.component';
 
 
 @Component({
@@ -16,7 +17,8 @@ import { DividerComponent } from './components/divider/divider.component';
     AboutComponent,
     FooterComponent,
     JobsComponent,
-    DividerComponent
+    DividerComponent,
+    HeroComponent
 
   ],
   templateUrl: './first-page.component.html',

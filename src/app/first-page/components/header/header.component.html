@@ -1,26 +1,71 @@
-<header class="navbar">
+<header class="navbar" #navbar>
   <div class="container">
-    <div class="logo">
-      <h1>Dr. Livia Ribeiro</h1>
-    </div>
 
-    <!-- Animated hamburger button (binds to same toggleMenu handler) -->
-    <button class="hamburger" (click)="toggleMenu()" [class.active]="menuAtivo" aria-label="Alternar menu" [attr.aria-expanded]="menuAtivo">
+    <!-- Logo -->
+    <a class="logo" href="#" aria-label="Dra. Lívia Ribeiro – início">
+      <div class="logo-avatar no-photo" aria-hidden="true">LR</div>
+      <!-- Com foto: substitua o div acima por:
+      <div class="logo-avatar">
+        <img src="assets/images/foto-livia.jpg" alt="Foto da Dra. Lívia Ribeiro" />
+      </div> -->
+      <div class="logo-text">
+        <span class="logo-name">Dra. Lívia Ribeiro</span>
+        <span class="logo-subtitle">Estética Avançada</span>
+      </div>
+    </a>
+
+    <!-- Hamburger (mobile) -->
+    <button
+      class="hamburger"
+      (click)="toggleMenu()"
+      [class.active]="menuAtivo"
+      aria-label="Alternar menu"
+      [attr.aria-expanded]="menuAtivo"
+    >
       <span></span>
       <span></span>
       <span></span>
     </button>
 
-    <nav class="menu" [class.active]="menuAtivo" role="navigation" [attr.aria-hidden]="!menuAtivo">
+    <!-- Nav / Drawer -->
+    <nav
+      class="menu"
+      [class.active]="menuAtivo"
+      role="navigation"
+      [attr.aria-hidden]="!menuAtivo"
+      #drawerNav
+    >
+      <!-- Botão fechar (visível só no mobile) -->
+      <button class="drawer-close" (click)="toggleMenu()" aria-label="Fechar menu">
+        <span></span>
+        <span></span>
+      </button>
+
       <ul>
-        <li><a href="#" (click)="scrollToSection($event, 'sobre-mim')">Sobre Mim</a></li>
-        <li><a href="#" (click)="scrollToSection($event, 'sobre-mim')">Procedimentos</a></li>
-        <li><a href="#" (click)="scrollToSection($event, 'price-table')">Tabela de Preços</a></li>
+        <li><a href="#sobre-mim"     (click)="scrollToSection($event, 'sobre-mim')">Sobre Mim</a></li>
+        <li><a href="#procedimentos" (click)="scrollToSection($event, 'procedimentos')">Procedimentos</a></li>
+        <li><a href="#price-table"   (click)="scrollToSection($event, 'price-table')">Tabela de Preços</a></li>
+        <li><a href="#contato"       (click)="scrollToSection($event, 'contato')">Contato</a></li>
       </ul>
+      <!-- CTA mobile (visível só no drawer) -->
+<a class="cta-btn-mobile" href="#contato" (click)="scrollToSection($event, 'contato')">
+  Agendar consulta
+</a>
+
     </nav>
+
+    <!-- CTA -->
+    <a class="cta-btn" href="#contato" (click)="scrollToSection($event, 'contato')">
+      Agendar consulta
+    </a>
+
   </div>
 
-  <!-- Backdrop for mobile menu (click to close) -->
-  <div class="menu-backdrop" (click)="toggleMenu()" [class.active]="menuAtivo" aria-hidden="true"></div>
-
+  <!-- Backdrop mobile -->
+  <div
+    class="menu-backdrop"
+    (click)="toggleMenu()"
+    [class.active]="menuAtivo"
+    aria-hidden="true"
+  ></div>
 </header>
