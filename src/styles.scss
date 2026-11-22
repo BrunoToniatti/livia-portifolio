@@ -1,11 +1,10 @@
 @use 'style/variable' as *;
 
 :root {
-  --rose: #{$rose-principal};
-  --rose-dark: #{$rose-escuro};
-  --rose-deep: #{$rose-profundo};
-  --rose-light: #{$rose-claro};
   --gold: #{$dourado};
+  --yellow: #{$amarelo};
+  --gold-deep: #{$ouro-profundo};
+  --gold-light: #{$ouro-claro};
   --beige: #{$bege};
   --beige-light: #{$bege-claro};
   --white: #{$branco-neve};
@@ -82,12 +81,12 @@ h4 {
 }
 
 ::selection {
-  background: var(--rose);
+  background: var(--yellow);
   color: var(--ink);
 }
 
 :focus-visible {
-  outline: 2px solid var(--rose-deep);
+  outline: 2px solid var(--gold-deep);
   outline-offset: 3px;
   border-radius: 6px;
 }
@@ -121,7 +120,7 @@ h4 {
   font-weight: 500;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--rose-deep);
+  color: var(--gold-deep);
 
   &::before {
     content: '';
@@ -144,7 +143,7 @@ h4 {
   text-wrap: balance;
 
   em {
-    color: var(--rose-deep);
+    color: var(--gold-deep);
   }
 }
 
@@ -212,12 +211,12 @@ h4 {
 }
 
 .btn--primary {
-  background: var(--rose-deep);
-  color: var(--white);
-  box-shadow: 0 14px 30px -14px rgba($rose-profundo, 0.75);
+  background: linear-gradient(135deg, var(--gold), var(--yellow));
+  color: var(--ink);
+  box-shadow: 0 14px 30px -14px rgba($ouro-profundo, 0.75);
 
   &:hover {
-    box-shadow: 0 20px 40px -16px rgba($rose-profundo, 0.85);
+    box-shadow: 0 20px 40px -16px rgba($ouro-profundo, 0.85);
   }
 }
 
@@ -233,7 +232,7 @@ h4 {
 
 .btn--light {
   background: var(--white);
-  color: var(--rose-deep);
+  color: var(--gold-deep);
   box-shadow: 0 16px 36px -18px rgba($texto, 0.6);
 }
 

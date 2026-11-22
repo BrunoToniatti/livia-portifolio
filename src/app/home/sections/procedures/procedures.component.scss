@@ -2,7 +2,7 @@
 
 .procedures {
   background:
-    radial-gradient(60rem 30rem at 100% 0%, rgba($rose-principal, 0.35), transparent 60%),
+    radial-gradient(60rem 30rem at 100% 0%, rgba($amarelo, 0.35), transparent 60%),
     var(--beige-light);
 }
 
@@ -90,7 +90,7 @@
   display: none;
   font-size: 0.72rem;
   letter-spacing: 0.14em;
-  color: var(--rose-deep);
+  color: var(--gold-deep);
 
   .is-active & {
     color: var(--gold);
@@ -180,7 +180,7 @@
   position: relative;
   overflow: hidden;
   aspect-ratio: 4 / 3;
-  background: var(--rose-light);
+  background: var(--gold-light);
 
   @media (min-width: 720px) {
     aspect-ratio: auto;
@@ -234,7 +234,7 @@
   place-items: center;
   background:
     radial-gradient(circle at 30% 20%, rgba($branco-neve, 0.9), transparent 55%),
-    linear-gradient(150deg, var(--rose-light), var(--rose) 55%, var(--rose-dark));
+    linear-gradient(150deg, var(--gold-light), var(--yellow) 55%, var(--gold));
 }
 
 .proc-art__ring {
@@ -242,7 +242,7 @@
   left: 50%;
   top: 50%;
   border-radius: 50%;
-  border: 1px solid rgba($branco-neve, 0.75);
+  border: 1px solid rgba($branco-neve, 0.85);
   translate: -50% -50%;
   animation: ripple 4.5s var(--ease) infinite;
 }
@@ -283,8 +283,8 @@
   font-family: 'Playfair Display', Georgia, serif;
   font-size: clamp(1.8rem, 4vw, 2.6rem);
   font-style: italic;
-  color: var(--white);
-  text-shadow: 0 4px 24px rgba($rose-profundo, 0.5);
+  color: var(--ink);
+  text-shadow: 0 2px 20px rgba($branco-neve, 0.6);
 }
 
 // ── Conteúdo ──────────────────────────────────────────────────────────
@@ -299,7 +299,7 @@
   font-weight: 500;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--rose-deep);
+  color: var(--gold-deep);
 }
 
 .panel__title {
@@ -332,7 +332,7 @@
   }
 
   app-icon {
-    color: var(--rose-deep);
+    color: var(--gold-deep);
   }
 }
 
@@ -362,8 +362,8 @@
   height: 1.35rem;
   margin-top: 0.05rem;
   border-radius: 50%;
-  background: var(--rose-deep);
-  color: var(--white);
+  background: linear-gradient(135deg, var(--gold), var(--yellow));
+  color: var(--ink);
   font-size: 0.7rem;
 }
 
@@ -401,7 +401,7 @@
   font-family: 'Playfair Display', Georgia, serif;
   font-size: 1.55rem;
   font-weight: 500;
-  color: var(--rose-deep);
+  color: var(--gold-deep);
 }
 
 .price__note {

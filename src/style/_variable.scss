@@ -1,4 +1,5 @@
 // Paleta oficial (não alterar)
+// Rosa e rosa-escuro continuam na paleta, mas os detalhes do site usam dourado e amarelo
 $rose-principal: #e8b7c8;
 $rose-escuro: #c97c90;
 $dourado: #d4af37;
@@ -9,9 +10,11 @@ $marrom-claro: #a1866f;
 // Tons derivados da própria paleta, usados para texto e contraste
 $texto: mix(#000, $marrom-claro, 68%);        // marrom profundo para títulos e textos
 $texto-suave: mix(#000, $marrom-claro, 45%);  // textos de apoio
-$rose-profundo: mix(#000, $rose-escuro, 30%); // botões e destaques com contraste AA
-$rose-claro: mix($rose-principal, $branco-neve, 35%);
 $bege-claro: mix($bege, $branco-neve, 40%);
+
+$ouro-profundo: mix(#000, $dourado, 55%);   // dourado escuro: texto de destaque com contraste
+$amarelo: #f2cf5b;                          // amarelo luminoso, derivado do dourado
+$ouro-claro: mix($dourado, $branco-neve, 22%);
 
 $ease: cubic-bezier(0.22, 1, 0.36, 1);
 

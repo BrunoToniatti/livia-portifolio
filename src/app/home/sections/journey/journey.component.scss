@@ -9,7 +9,7 @@
     color: var(--beige);
 
     em {
-      color: var(--rose);
+      color: var(--yellow);
     }
   }
 
@@ -30,7 +30,7 @@
   top: -30rem;
   translate: -50% 0;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba($rose-escuro, 0.35), transparent 65%);
+  background: radial-gradient(circle, rgba($dourado, 0.35), transparent 65%);
   pointer-events: none;
 }
 
@@ -65,7 +65,7 @@
     bottom: auto;
     width: auto;
     height: 1px;
-    background: linear-gradient(to right, var(--gold), var(--rose-dark), var(--gold));
+    background: linear-gradient(to right, var(--gold), var(--yellow), var(--gold));
   }
 }
 
@@ -119,7 +119,7 @@
   width: 1.6rem;
   height: 1.6rem;
   border-radius: 50%;
-  background: var(--rose);
+  background: var(--yellow);
   color: var(--ink);
   font-size: 0.75rem;
   font-weight: 600;

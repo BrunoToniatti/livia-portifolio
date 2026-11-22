@@ -74,7 +74,7 @@
   height: 2.2rem;
   border-radius: 50%;
   border: 1px solid rgba($texto, 0.15);
-  color: var(--rose-deep);
+  color: var(--gold-deep);
   font-size: 0.95rem;
   transition:
     transform 0.6s var(--ease),
@@ -84,9 +84,9 @@
 
   .is-open & {
     transform: rotate(135deg);
-    background: var(--rose-deep);
-    border-color: var(--rose-deep);
-    color: var(--white);
+    background: var(--gold);
+    border-color: var(--gold);
+    color: var(--ink);
   }
 }
 
