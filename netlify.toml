@@ -1,0 +1,14 @@
+[build]
+  command = "npm run build"
+  publish = "dist/livia_front/browser"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+# Site de página única (SPA): qualquer rota devolve o index.html,
+# então atualizar a página ou abrir um link direto nunca dá 404.
+# Arquivos que existem de verdade (imagens, JS, CSS) continuam sendo servidos normalmente.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
