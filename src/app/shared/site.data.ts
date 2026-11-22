@@ -6,7 +6,7 @@ export const CONTACT = {
   instagramUrl: 'https://www.instagram.com/dra_liviaribeiro/',
   instagramHandle: '@dra_liviaribeiro',
   city: 'Santo André, SP',
-  fullName: 'Livia Barreto Ribeiro da Silva',
+  fullName: 'Lívia Ribeiro',
 };
 
 export function whatsappLink(
