@@ -1,6 +1,6 @@
 <section class="hero" id="inicio" #hero appInView #v="inView" inViewOffset="0%">
   <div class="hero__bg" aria-hidden="true">
-    <span class="blob blob--yellow"></span>
+    <span class="blob blob--rose"></span>
     <span class="blob blob--gold"></span>
     <span class="blob blob--light"></span>
   </div>
@@ -50,10 +50,10 @@
       </div>
 
       <ul class="hero__trust">
-        <li [@reveal]="rv(v.visible, 1200)">
-          <strong>+8 anos</strong>
+        <!--li [@reveal]="rv(v.visible, 1200)">
+          <strong>+5 anos</strong>
           <span>dedicados à estética</span>
-        </li>
+        </li-->
         <li [@reveal]="rv(v.visible, 1300)">
           <strong>Individual</strong>
           <span>consulta detalhada</span>
@@ -83,7 +83,7 @@
           />
         </figure>
 
-        <div class="layer hero__chip hero__chip--a" style="--depth: 26">
+        <!--div class="layer hero__chip hero__chip--a" style="--depth: 26">
           <div class="bob">
             <div class="chip" [@reveal]="rv(v.visible, 1200, 'translateY(24px) scale(0.9)')">
               <span class="chip__icon"><app-icon name="star" /></span>
@@ -93,9 +93,9 @@
               </span>
             </div>
           </div>
-        </div>
+        </div-->
 
-        <div class="layer hero__chip hero__chip--b" style="--depth: 34">
+        <!--div class="layer hero__chip hero__chip--b" style="--depth: 34">
           <div class="bob bob--slow">
             <div class="chip" [@reveal]="rv(v.visible, 1400, 'translateY(24px) scale(0.9)')">
               <span class="chip__icon chip__icon--gold"><app-icon name="sparkles" /></span>
@@ -105,7 +105,7 @@
               </span>
             </div>
           </div>
-        </div>
+        </div-->
 
         <a
           class="layer hero__seal"
